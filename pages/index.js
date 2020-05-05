@@ -10,12 +10,15 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="hello">Hello! <span className="emoji wave-hand"></span></h1>
-        <p className="description">
-          I'm <span>Timi Tejumola</span>, a design-minded software engineer focused on building beautiful interfaces & experiences across mobile & web platforms.🚀
-        </p>
+        <div className="mail">Get in Touch<span className="emoji point-hand"></span><a href="@mailto:tejumoladavid@gmail.com">tejumoladavid@gmail.com</a></div>
+        <div className="section-one">
+          <h1 className="hello">Hello! <span className="emoji wave-hand">&nbsp;</span></h1>
+          <p className="description">
+            I'm <span>Timi Tejumola</span>, a design-minded software engineer<br/> focused on building beautiful interfaces & experiences across<br/> mobile & web platforms.🚀
+          </p>
+        </div>
         <div className="section-two">
-          <div/>
+          <div className="empty-div"/>
           <div className="links">
             <a
               href="https://docs.google.com/document/d/1B3m6d2JoUdv5Zb-TwwVKVTotKpSLIXKIAWtu9iyO7lA/edit"
@@ -30,16 +33,17 @@ export default function Home() {
               <li><a href="https://www.medium.com/timitejumola"><img src="/images/medium.svg"/></a></li>
             </ul>
           </div>
-          <Avatar />
+          <div className="avatar">
+            <img src="/images/avatar.png" alt="Timi Avatar"/>
+          </div>
         </div>
       </main>
       <footer>
-        <h1>TIMI TEJUMOLA</h1>
+        {/* <h1>TIMI TEJUMOLA</h1> */}
       </footer>
       <style jsx>{`
         .container {
           min-height: 100vh;
-          padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -47,17 +51,52 @@ export default function Home() {
           margin-bottom: -8rem;
         }
         main {
-          flex: 1;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          width: 100%;
+        }
+        .mail {
+          display: flex;
           align-items: center;
+          position: fixed;
+          left: auto;
+          right: 27px;
+          z-index: 100;
+          writing-mode: vertical-rl;
+          font-size: 0.9rem;
+        }
+        .mail::before {
+          content: " "
+          display: block;
+          width: 4px;
+          height: 50px;
+          margin: 0px auto;
+          background-color: black;
+        }
+        .point-hand {
+          background-image: url('/images/emoji/point.png');
+          margin: 0.7rem 0;
+        }
+        .mail a {
+          border-left: 4px solid red;
+          font-weight: 800;
+        }
+        .emoji {
+          width: 40px;
+          height: 40px;
+        }
+        .emoji {
+          display: inline-block;
+          vertical-align: text-top;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
         }
         .wave-hand {
-          background-image: url(/images/emoji/wave.png);
-          margin-left: 10px;
+          background-image: url('/images/emoji/wave.png');
+          margin-left: 9px;
           cursor: pointer;
-]          -webkit-animation-duration: 1s;
+          -webkit-animation-duration: 1s;
           animation-duration: 1s;
           -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
@@ -148,13 +187,21 @@ export default function Home() {
           font-size: 2rem;
           font-weight: 300;
           margin: 0;
+          margin-top: 2.5rem;
         }
         .description span {
           font-weight: 800;
         }
+        .section-one {
+          padding: 0 8rem;
+        }
+
         .section-two {
-          display: flex;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
           justify-content: space-between;
+          align-items: end;
+          padding: 0 8rem;
         }
         .section-two .links {
           display: flex;
@@ -163,12 +210,19 @@ export default function Home() {
           align-items: center;
         }
         .resume-link {
-          padding: 0.56rem 2.2rem;
+          padding: 0.8rem 3rem;
           border: 2px solid #000000;
           border-radius: 5px;
-          margin-top: 2rem;
+          margin: 3rem 0 1.6rem 0;
           font-weight: 800;
-          font-size: 0.7rem;
+          font-size: 0.8rem;
+        }
+        .avatar {
+          justify-self: end;
+        }
+        .avatar img {
+          width: 8.2rem;
+
         }
         footer h1 {
           font-size: 15rem;
@@ -185,6 +239,10 @@ export default function Home() {
           font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
+          background-image: url('/images/dots.svg'), url('/images/tt-text.svg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position: 100% 20%, 50% 100%;
         }
         * {
           box-sizing: border-box;
@@ -195,7 +253,7 @@ export default function Home() {
         }
         ul {
           display: flex;
-          margin-left: 0px;
+          padding: 0px;
         }
         li {
           list-style: none;
