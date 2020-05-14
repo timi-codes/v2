@@ -8,15 +8,14 @@ export default function Home() {
         <title>Timi Tejumola</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main>
-        <div className="mail">Get in Touch<span className="emoji point-hand"></span><a href="@mailto:tejumoladavid@gmail.com">tejumoladavid@gmail.com</a></div>
         <div className="section-one">
           <h1 className="hello">Hello! <span className="emoji wave-hand">&nbsp;</span></h1>
           <p className="description">
             I'm <span>Timi Tejumola</span>, a design-minded software engineer<br/> focused on building beautiful interfaces & experiences across<br/> mobile & web platforms.🚀
           </p>
         </div>
+        <hr/>
         <div className="section-two">
           <div className="empty-div"/>
           <div className="links">
@@ -29,8 +28,8 @@ export default function Home() {
             <ul>
               <li><a href="https://www.github.com/timi-codes"><img src="/images/github.svg"/></a></li>
               <li><a href="https://www.linkedin.com/timitejumola"><img src="/images/linkedin.svg" /></a></li>
-              <li><a href="https://www.twitter.com/timicodes"><img src="/images/twitter.svg"/></a></li>
-              <li><a href="https://www.medium.com/timitejumola"><img src="/images/medium.svg"/></a></li>
+              <li><a href="https://www.twitter.com/timicodes"><img src="/images/twitter.svg" /></a></li>
+              <li><a href="mailto:tejumoladavid@gmail.com"><img src="/images/email.svg"/></a></li>
             </ul>
           </div>
           <div className="avatar">
@@ -49,37 +48,12 @@ export default function Home() {
           justify-content: center;
           align-items: center;
           margin-bottom: -8rem;
+          border-top: 15px solid #E25252;
         }
         main {
           display: flex;
           flex-direction: column;
           width: 100%;
-        }
-        .mail {
-          display: flex;
-          align-items: center;
-          position: fixed;
-          left: auto;
-          right: 27px;
-          z-index: 100;
-          writing-mode: vertical-rl;
-          font-size: 0.9rem;
-        }
-        .mail::before {
-          content: " "
-          display: block;
-          width: 4px;
-          height: 50px;
-          margin: 0px auto;
-          background-color: black;
-        }
-        .point-hand {
-          background-image: url('/images/emoji/point.png');
-          margin: 0.7rem 0;
-        }
-        .mail a {
-          border-left: 4px solid red;
-          font-weight: 800;
         }
         .emoji {
           width: 40px;
