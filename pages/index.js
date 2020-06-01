@@ -1,7 +1,18 @@
+import React, {useState} from 'react';
 import Head from 'next/head'
 import Avatar from '../components/Avatar';
 
 export default function Home() {
+  const [isHover, setHover] = useState(false)
+
+  const handleToggleHover = () => {
+    if (isHover) {
+      setHover(false)
+    } else {
+      setHover(true)
+    }
+  }
+
   return (
     <div className="container">
       <Head>
@@ -10,9 +21,9 @@ export default function Home() {
       </Head>
       <main>
         <div className="section-one">
-          <h1 className="hello">Hello! <span className="emoji wave-hand">&nbsp;</span></h1>
+          <h1 onMouseEnter={handleToggleHover} onMouseLeave={handleToggleHover} className="hello">Hello! <span className="emoji wave-hand">&nbsp;</span></h1>
           <p className="description">
-            I'm <span>Timi Tejumola</span>, a design-minded software engineer<br/> focused on building beautiful interfaces & experiences across<br/> mobile & web platforms.🚀
+            I'm <span>Timi Tejumola</span>, a design-minded software engineer<br/> focused on building beautiful interfaces & experiences across<br/> mobile & web platforms. 🚀
           </p>
         </div>
         <hr/>
@@ -37,9 +48,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <footer>
-        {/* <h1>TIMI TEJUMOLA</h1> */}
-      </footer>
       <style jsx>{`
         .container {
           min-height: 100vh;
@@ -159,9 +167,8 @@ export default function Home() {
         }
         .description {
           font-size: 2rem;
-          font-weight: 300;
           margin: 0;
-          margin-top: 2.5rem;
+          margin-top: 4.3rem;
         }
         .description span {
           font-weight: 800;
@@ -193,10 +200,10 @@ export default function Home() {
         }
         .avatar {
           justify-self: end;
+          margin-top: 4rem
         }
         .avatar img {
-          width: 8.2rem;
-
+          width: 8.6rem;
         }
         footer h1 {
           font-size: 15rem;
@@ -204,6 +211,50 @@ export default function Home() {
           color: #787878;
           opacity: 0.1;
         }
+
+        @media only screen and (max-width: 600px) {
+          .section-one {
+            padding: 0 1.1rem;
+          }
+
+          .section-two {
+            padding: 0 1.1rem;
+            grid-template-columns: 1fr;
+          }
+          .hello {
+            font-size: 1.6rem;
+            margin-top: 4rem;
+          }
+          .description {
+            font-size: 1.4rem;
+            line-height: 150%
+            margin-top: 1.8rem;
+          }
+          .avatar {
+            margin-top: 0rem;
+          }
+          .avatar img {
+            width: 6.8rem;
+            margin-right: 2rem
+            margin-top: 2rem
+          }
+          .resume-link {
+            padding: 0.6rem 2rem;
+            border: 2px solid #000000;
+            border-radius: 5px;
+            margin: 2rem 0 1.6rem 0;
+            font-weight: 800;
+            font-size: 0.8rem;
+          }
+          .emoji {
+            width: 32px;
+            height: 32px;
+          }
+          li {
+            padding: 1.4rem
+          }
+        }
+
       `}</style>
       <style jsx global>{`
         html,
@@ -217,6 +268,7 @@ export default function Home() {
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-position: 100% 20%, 50% 100%;
+          cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/happy.png"), auto;
         }
         * {
           box-sizing: border-box;
@@ -224,6 +276,7 @@ export default function Home() {
         a {
           text-decoration: none;
           color: #000000;
+          cursor: url("https://res.cloudinary.com/timi-codes/image/upload/v1590901745/cursor_gme62s.png"), auto;
         }
         ul {
           display: flex;
@@ -232,6 +285,7 @@ export default function Home() {
         li {
           list-style: none;
           padding: 1.5rem;
+          cursor: url("https://res.cloudinary.com/timi-codes/image/upload/v1590901745/cursor_gme62s.png"), auto;
         }
       `}</style>
     </div>
